@@ -8,7 +8,6 @@ from sklearn.metrics import roc_auc_score
 from scipy import interp
 from itertools import cycle
 from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.utils import to_categorical
 
 def plotting_loss(history):
     plt.figure(1)
@@ -64,7 +63,7 @@ def ROC_curve(YTraining, YTest, y_score):
     for i in range(3):
         fpr[i], tpr[i], _ = roc_curve(YTest[:, i], y_score[:, i])
         roc_auc[i] = auc(fpr[i], tpr[i])
-
+        
     lw = 2
 
     # First aggregate all false positive rates
