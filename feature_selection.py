@@ -21,6 +21,9 @@ def chi_squared(XTraining, YTraining, XTest, number_of_features):
     select_k_best_classifier = chi2_features.fit(XTraining, YTraining) 
     XTraining = chi2_features.fit_transform(XTraining, YTraining) 
     XTest, m = new_features1(select_k_best_classifier, XTest)
+    print('-----------------------------------------')
+    print('kivalasztott jellemzok: ', XTest.keys())
+    print('-----------------------------------------')
     return XTraining, XTest, m
 
 def recursive_feature_elimination(XTraining, YTraining, XTest, number_of_features):
