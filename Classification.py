@@ -22,7 +22,7 @@ def neural_network(XTraining, YTraining, XTest, YTest, epochs, m, learning_rate)
 
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
     history = model.fit(XTraining, YTraining, epochs=epochs, validation_split=0.2)
-    y_pred = np.round(model.predict(XTest,2))
+    y_pred = np.round(model.predict(XTest,2) >= 0.5) #setting threshold 0.5
     y_score = model.predict_proba(XTest)
     lossfunc, acc = model.evaluate(XTest, YTest, verbose=2)
     print('Neural network accuracy: %.2f' % (acc*100))
